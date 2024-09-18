@@ -13,6 +13,7 @@ body {
   margin: 0;
   padding: 10px;
   overflow: hidden;
+  max-width: 470px;
 }
 
 h1 {
@@ -25,6 +26,7 @@ h1 {
 
 form {
   margin-top: 25px;
+  margin-bottom: 15px;
   position: relative;
   overflow-x: hidden;
   border-radius: 5px;
@@ -50,6 +52,25 @@ input:focus input[type=text]::placeholder {
 
 span {
   font-weight: 700;
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 10px;
+  color: rgb(0, 0, 0);
+  background-color: white;
+  border-radius: 10px;
+  margin-right: 7px;
+  margin-bottom: 10px;
+}
+
+.choiceTagsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag.active {
+  background-color: red;
 }
 
 /*# sourceMappingURL=style.css.map */

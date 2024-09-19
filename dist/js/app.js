@@ -2,6 +2,7 @@
 const form = document.querySelector('form');
 const input = document.querySelector('input');
 const wrapper = document.querySelector('.choiceTagsWrapper');
+const clear = document.querySelector('p');
 const createTag = () => {
     const confirm = form[0];
     const inputLength = confirm.value.split(",").length - 2;
@@ -10,11 +11,11 @@ const createTag = () => {
     createdElement.innerText = inputInfo;
     createdElement.classList.add('tag');
     wrapper.appendChild(createdElement);
+    clear.classList.add('active');
 };
 input.addEventListener('input', (e) => {
     const event = e;
     event.data === "," ? createTag() : null;
-    console.log(event.data);
 });
 form.addEventListener('submit', (e) => {
     const tags = document.querySelectorAll('div .tag');
@@ -25,15 +26,19 @@ form.addEventListener('submit', (e) => {
         counter++;
         if (tags.length <= counter)
             clearInterval(interval);
-    }, 350);
+    }, 150);
 });
 const randomFilter = (counter) => {
     const tags = document.querySelectorAll('div .tag');
     const random = Math.floor((Math.random() * tags.length));
     tags[random].classList.add('active');
-    console.log(random);
-    setTimeout(() => {
-        tags[random].classList.remove('active');
-    }, 200);
+    if (counter < tags.length - 1) {
+        setTimeout(() => {
+            tags[random].classList.remove('active');
+        }, 100);
+    }
+    ;
+    input.value = "";
 };
+clear.addEventListener('click', () => document.querySelectorAll('div .tag').forEach((tag) => tag.remove()));
 //# sourceMappingURL=app.js.map

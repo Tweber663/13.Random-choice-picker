@@ -3,6 +3,7 @@ const form = document.querySelector('form');
 const input = document.querySelector('input');
 const wrapper = document.querySelector('.choiceTagsWrapper');
 const clear = document.querySelector('p');
+document.addEventListener('DOMContentLoaded', () => input.focus());
 const createTag = () => {
     const confirm = form[0];
     const inputLength = confirm.value.split(",").length - 2;

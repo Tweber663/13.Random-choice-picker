@@ -3,6 +3,8 @@ const input = document.querySelector('input') as HTMLInputElement;
 const wrapper = document.querySelector('.choiceTagsWrapper') as HTMLDivElement; 
 const clear = document.querySelector('p') as HTMLParagraphElement; 
 
+document.addEventListener('DOMContentLoaded', () => input.focus());
+
 const createTag = () => {
     const confirm = form[0] as HTMLInputElement; 
     const inputLength = confirm.value.split(",").length - 2; 
